@@ -10,17 +10,19 @@ class Layout extends Component {
     };
   }
 
-  render() {
-    setTimeout(() => {
-      this.setState({
-        title: "Welcome Everyone"
-      });
-    }, 2000);
+  changeTitle = title => {
+    this.setState({ title });
+  };
 
+  // changeTitle = this.changeTitle.bind(this);
+
+  render() {
     return (
       <div>
-        <Header title={this.state.title} />
-        <Header title={"Other Title"} />
+        <Header
+          changeTitle={this.changeTitle.bind(this)}
+          title={this.state.title}
+        />
         <Footer />
       </div>
     );
